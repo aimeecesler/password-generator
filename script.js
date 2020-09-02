@@ -36,6 +36,16 @@ function generatePassword(){
   var containsSpecialCharacters = confirm("Would you like your password to contain special characters?")
   console.log("Contains special characters: " + containsSpecialCharacters)
 
+  if(containsLowercase === false && containsUppercase === false && containsNumbers === false && containsSpecialCharacters === false) {
+    alert("Error: Your password must contain at least one of the following - lowercase letters, uppercase letters, numbers, special characters")
+        // TODO: how do I make it stop here and reset if they put in an invalid entry?
+  }
+  // passwordOptions {
+  //   alphabet: "abcdefghijklmnopqrstuvwxyz"
+  //   numbers: "123456789"
+  //   specialCharacters: "!@#$%&*?+-/"
+  // }
+
 
    // return "THIS IS NOT MY FINAL PASSWORD"
 }
