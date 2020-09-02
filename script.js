@@ -9,17 +9,16 @@ function writePassword() {
   passwordText.value = password;
 }
 
-var passwordOptions = {
-  alphabetLower: "abcdefghijklmnopqrstuvwxyz",
-  alphabetUpper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  numbers: "123456789",
-  specialCharacters: "!@#$%&*?+-/",
-};
-
 function generatePassword() {
   // TODO: GENERATE A REAL PASSWORD AND REPLACE THE RETURN STRING WITH A REAL PASSWORD
 
+  var alphabetLower = "abcdefghijklmnopqrstuvwxyz";
+  var alphabetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numbers =  "123456789";
+  var specialCharacters = "!@#$%&*?+-/";
+
   var characterOptions = [];
+  var password = ""
 
   var passwordLength = prompt(
     "How many characters would you like your password to contain? (must be a number between 8 and 128)"
@@ -62,11 +61,29 @@ function generatePassword() {
     // TODO: how do I make it stop here and reset if they put in an invalid entry?
   } 
   if (containsLowercase === true) {
-    characterOptions.push(passwordOptions.alphabetLower);
+    characterOptions = characterOptions.concat(alphabetLower)
+    console.log(characterOptions);
+  } 
+  if (containsUppercase === true) {
+    characterOptions = characterOptions.concat(alphabetUpper)
+    console.log(characterOptions);
+  } 
+  if (containsNumbers === true) {
+    characterOptions = characterOptions.concat(numbers)
+    console.log(characterOptions);
+  } 
+  if (containsSpecialCharacters === true) {
+    characterOptions = characterOptions.concat(specialCharacters)
     console.log(characterOptions);
   } 
 
-  // return "THIS IS NOT MY FINAL PASSWORD"
+  // for (var i = 0; i < passwordLength; i++){
+  // var char = Math.floor(Math.random() * characterOptions.length);
+  // password += characterOptions.charAt(char);
+  // console.log(password);
+  // }
+
+  // return ;
 }
 
 // Add event listener to generate button
