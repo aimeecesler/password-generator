@@ -9,7 +9,11 @@ function writePassword() {
   passwordText.value = password;
 }
 
+// Funtion to Generate a Password
 function generatePassword() {
+
+  // VARIABLES TO DEFINE
+  // Lowercase alphabet array
   var alphabetLower = [
     "a",
     "b",
@@ -38,6 +42,7 @@ function generatePassword() {
     "y",
     "z",
   ];
+  // Uppercase alphabet array
   var alphabetUpper = [
     "A",
     "B",
@@ -84,87 +89,82 @@ function generatePassword() {
   var characterOptions = [];
   var password = "";
 
+// First prompt when user pushes the button, user must enter a valid number or it will yield an error message
+// if valid number is entered variable is set to that number
   var passwordLength = prompt(
     "How many characters would you like your password to contain? (must be a number between 8 and 128)"
   );
 
+  // if an invalid number is entered, the below message will display and function will restart
   if (passwordLength > 128 || passwordLength < 8) {
     alert("Invalid Entry: Password must be between 8 and 128 characters.");
     generatePassword();
   } else {
-    // console.log("Password Length: " + passwordLength);
 
+    // Second question, user responds and sets variable to true or false
     var containsLowercase = confirm(
       "Would you like your password to contain lowercase letters?"
     );
-    // console.log("Contains lowercase: " + containsLowercase);
 
+    // Third question, user responds and sets variable to true or false
     var containsUppercase = confirm(
       "Would you like your password to contain UPPERCASE letters?"
     );
-    // console.log("Contains uppercase: " + containsUppercase);
 
+    // Fourth question, user responds and sets variable to true or false
     var containsNumbers = confirm(
       "Would you like your password to contain numbers?"
     );
-    // console.log("Contains numbers: " + containsNumbers);
 
+    // Fifth question, user responds and sets variable to true or false
     var containsSpecialCharacters = confirm(
       "Would you like your password to contain special characters?"
     );
-    // console.log("Contains special characters: " + containsSpecialCharacters);
 
+    // after all questions are answered, validate that there are enough parameters to continue
     if (
       containsLowercase === false &&
       containsUppercase === false &&
       containsNumbers === false &&
       containsSpecialCharacters === false
     ) {
+
+    // if questions 2-5 were all answered no, then an error message will be given and the function will restart
       alert(
         "Error: Your password must contain at least one of the following - lowercase letters, uppercase letters, numbers, special characters"
       );
       generatePassword();
+      // if there are enough parameters chosen, add the desired password parameters to an array named characterOptions
     } else {
+      // if lowercase is selected, add lowercase to the array
       if (containsLowercase === true) {
         characterOptions = characterOptions.concat(alphabetLower);
-        // console.log(characterOptions);
       }
+      // if uppercase is selected, add uppercase to the array
       if (containsUppercase === true) {
         characterOptions = characterOptions.concat(alphabetUpper);
-        // console.log(characterOptions);
       }
+      // if numbers are selected, add numbers to the array
       if (containsNumbers === true) {
         characterOptions = characterOptions.concat(numbers);
-        // console.log(characterOptions);
       }
+      // if special characters are selected, add special characters to the array
       if (containsSpecialCharacters === true) {
         characterOptions = characterOptions.concat(specialCharacters);
-        // console.log(characterOptions);
       }
 
+      // for the number of characters selected by the user, chose a random character at location char from the array
+      // at the end of the for loop, assign the string of characters to password
       for (var i = 0; i < passwordLength; i++) {
         var char = Math.floor(Math.random() * characterOptions.length);
         password += characterOptions[char];
-        // console.log(password);
       }
     }
   }
 
+  // return password to its designated location
   return password;
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// PSUEDO CODE
-// User presses button on page
-// Prompt: How many characters would you like your password to contain (must be a number between 8 and 128)
-// If user response is within the parameters, move on to next step, if not give error message and end prompts.
-// Ask user if they want lowercase letters in their password?
-// Ask user if they want uppercase letters in their password?
-// Ask user if they want numbers in their password?
-// Ask user if they want special characters in their password?
-// If user answers yes to any of the above criteria, then include it in the password.
-// If user answers no to all of the above criteria, display error message that they must pick at least on of those options.
-// Generate password using parameters selected by user.
-// display password (return)
