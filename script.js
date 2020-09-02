@@ -10,8 +10,6 @@ function writePassword() {
 }
 
 function generatePassword() {
-  // TODO: GENERATE A REAL PASSWORD AND REPLACE THE RETURN STRING WITH A REAL PASSWORD
-
   var alphabetLower = [
     "a",
     "b",
