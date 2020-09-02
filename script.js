@@ -9,12 +9,17 @@ function writePassword() {
   passwordText.value = password;
 }
 
-
+var passwordOptions = {
+  alphabetLower: "abcdefghijklmnopqrstuvwxyz",
+  alphabetUpper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  numbers: "123456789",
+  specialCharacters: "!@#$%&*?+-/",
+};
 
 function generatePassword() {
   // TODO: GENERATE A REAL PASSWORD AND REPLACE THE RETURN STRING WITH A REAL PASSWORD
 
-  var characterOptions = []
+  var characterOptions = [];
 
   var passwordLength = prompt(
     "How many characters would you like your password to contain? (must be a number between 8 and 128)"
@@ -55,14 +60,11 @@ function generatePassword() {
       "Error: Your password must contain at least one of the following - lowercase letters, uppercase letters, numbers, special characters"
     );
     // TODO: how do I make it stop here and reset if they put in an invalid entry?
-  }
-
-  var passwordOptions = {
-    alphabet: "abcdefghijklmnopqrstuvwxyz",
-    numbers: "123456789",
-    specialCharacters: "!@#$%&*?+-/",
-
-  }
+  } 
+  if (containsLowercase === true) {
+    characterOptions.push(passwordOptions.alphabetLower);
+    console.log(characterOptions);
+  } 
 
   // return "THIS IS NOT MY FINAL PASSWORD"
 }
