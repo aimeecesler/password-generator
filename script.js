@@ -30,6 +30,9 @@ function generatePassword(){
   var containsUppercase = confirm("Would you like your password to contain UPPERCASE letters?")
   console.log("Contains uppercase: " + containsUppercase)
 
+  var containsNumbers = confirm("Would you like your password to contain numbers?")
+  console.log("Contains uppercase: " + containsNumbers)
+
 
    // return "THIS IS NOT MY FINAL PASSWORD"
 }
