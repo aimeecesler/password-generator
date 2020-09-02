@@ -12,12 +12,13 @@ function writePassword() {
 
 function generatePassword(){
   // TODO: GENERATE A REAL PASSWORD AND REPLACE THE RETURN STRING WITH A REAL PASSWORD
-  // return "THIS IS NOT MY FINAL PASSWORD"
+ 
 
   var passwordLength = prompt("How many characters would you like your password to contain? (must be a number between 8 and 128)")
 
   if(passwordLength > 128 || passwordLength < 8){
     alert("Invalid Entry: Password must be between 8 and 128 characters.");
+    // TODO: how do I make it stop here and reset if they put in an invalid entry?
   }
   else (
     console.log("Password Length: " + passwordLength)
@@ -26,6 +27,11 @@ function generatePassword(){
   var containsLowercase = confirm("Would you like your password to contain lowercase letters?")
   console.log("Contains lowercase: " + containsLowercase)
 
+  var containsUppercase = confirm("Would you like your password to contain UPPERCASE letters?")
+  console.log("Contains uppercase: " + containsUppercase)
+
+
+   // return "THIS IS NOT MY FINAL PASSWORD"
 }
 
 // Add event listener to generate button
