@@ -12,10 +12,10 @@ function writePassword() {
 function generatePassword() {
   // TODO: GENERATE A REAL PASSWORD AND REPLACE THE RETURN STRING WITH A REAL PASSWORD
 
-  var alphabetLower = "abcdefghijklmnopqrstuvwxyz";
-  var alphabetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var numbers =  "123456789";
-  var specialCharacters = "!@#$%&*?+-/";
+  var alphabetLower = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var alphabetUpper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  var numbers =  [1,2,3,4,5,6,7,8,9];
+  var specialCharacters = ["!","@","#","$","%","&","*","?","+","-","/"];
 
   var characterOptions = [];
   var password = ""
