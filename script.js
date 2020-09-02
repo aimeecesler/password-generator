@@ -14,8 +14,14 @@ function generatePassword(){
   // TODO: GENERATE A REAL PASSWORD AND REPLACE THE RETURN STRING WITH A REAL PASSWORD
   // return "THIS IS NOT MY FINAL PASSWORD"
 
-  
+  var passwordLength = prompt("How many characters would you like your password to contain? (must be a number between 8 and 128)")
 
+  if(passwordLength > 128 || passwordLength < 8){
+    alert("Invalid Entry: Password must be between 8 and 128 characters.");
+  }
+  else (
+    console.log("Password Length: " + passwordLength)
+  )
 }
 
 // Add event listener to generate button
