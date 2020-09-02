@@ -22,6 +22,10 @@ function generatePassword(){
   else (
     console.log("Password Length: " + passwordLength)
   )
+
+  var containsLowercase = confirm("Would you like your password to contain lowercase letters?")
+  console.log("Contains lowercase: " + containsLowercase)
+
 }
 
 // Add event listener to generate button
