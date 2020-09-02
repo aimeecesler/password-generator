@@ -99,22 +99,22 @@ function generatePassword() {
     var containsLowercase = confirm(
       "Would you like your password to contain lowercase letters?"
     );
-    console.log("Contains lowercase: " + containsLowercase);
+    // console.log("Contains lowercase: " + containsLowercase);
 
     var containsUppercase = confirm(
       "Would you like your password to contain UPPERCASE letters?"
     );
-    console.log("Contains uppercase: " + containsUppercase);
+    // console.log("Contains uppercase: " + containsUppercase);
 
     var containsNumbers = confirm(
       "Would you like your password to contain numbers?"
     );
-    console.log("Contains numbers: " + containsNumbers);
+    // console.log("Contains numbers: " + containsNumbers);
 
     var containsSpecialCharacters = confirm(
       "Would you like your password to contain special characters?"
     );
-    console.log("Contains special characters: " + containsSpecialCharacters);
+    // console.log("Contains special characters: " + containsSpecialCharacters);
 
     if (
       containsLowercase === false &&
@@ -126,33 +126,33 @@ function generatePassword() {
         "Error: Your password must contain at least one of the following - lowercase letters, uppercase letters, numbers, special characters"
       );
       generatePassword();
-      // TODO: how do I make it stop here and reset if they put in an invalid entry?
-    }
-    if (containsLowercase === true) {
-      characterOptions = characterOptions.concat(alphabetLower);
-      console.log(characterOptions);
-    }
-    if (containsUppercase === true) {
-      characterOptions = characterOptions.concat(alphabetUpper);
-      console.log(characterOptions);
-    }
-    if (containsNumbers === true) {
-      characterOptions = characterOptions.concat(numbers);
-      console.log(characterOptions);
-    }
-    if (containsSpecialCharacters === true) {
-      characterOptions = characterOptions.concat(specialCharacters);
-      console.log(characterOptions);
-    }
+    } else {
+      if (containsLowercase === true) {
+        characterOptions = characterOptions.concat(alphabetLower);
+        // console.log(characterOptions);
+      }
+      if (containsUppercase === true) {
+        characterOptions = characterOptions.concat(alphabetUpper);
+        // console.log(characterOptions);
+      }
+      if (containsNumbers === true) {
+        characterOptions = characterOptions.concat(numbers);
+        // console.log(characterOptions);
+      }
+      if (containsSpecialCharacters === true) {
+        characterOptions = characterOptions.concat(specialCharacters);
+        // console.log(characterOptions);
+      }
 
-    // for (var i = 0; i < passwordLength; i++){
-    // var char = Math.floor(Math.random() * characterOptions.length);
-    // password += characterOptions.charAt(char);
-    // console.log(password);
-    // }
+      for (var i = 0; i < passwordLength; i++) {
+        var char = Math.floor(Math.random() * characterOptions.length);
+        password += characterOptions[char];
+        // console.log(password);
+      }
+    }
   }
 
-  // return ;
+  return password;
 }
 
 // Add event listener to generate button
