@@ -11,96 +11,35 @@ function writePassword() {
 
 // Funtion to Generate a Password
 function generatePassword() {
-
   // VARIABLES TO DEFINE
-  // Lowercase alphabet array
-  var alphabetLower = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-  ];
-  // Uppercase alphabet array
-  var alphabetUpper = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-  ];
+  // Lowercase alphabet
+  var alphabetLower = "abcdefghijklmnopqrstuvwxyz";
+  alphabetLower = alphabetLower.split("");
+  // Uppercase alphabet
+  var alphabetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  alphabetUpper = alphabetUpper.split("");
+  // Numbers
   var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  var specialCharacters = [
-    "!",
-    "@",
-    "#",
-    "$",
-    "%",
-    "&",
-    "*",
-    "?",
-    "+",
-    "-",
-    "/",
-  ];
+  // special characters
+  var specialCharacters = "!@#$%&*?+-/";
+  specialCharacters = specialCharacters.split("");
 
   var characterOptions = [];
   var password = "";
 
-// First prompt when user pushes the button, user must enter a valid number or it will yield an error message
-// if valid number is entered variable is set to that number
+  // First prompt when user pushes the button, user must enter a valid number or it will yield an error message
+  // if valid number is entered variable is set to that number
   var passwordLength = prompt(
     "How many characters would you like your password to contain? (must be a number between 8 and 128)"
   );
 
   // if an invalid number is entered, the below message will display and function will restart
-  if (passwordLength > 128 || passwordLength < 8) {
+  if (passwordLength === null) {
+    location.reload();
+  } else if (passwordLength > 128 || passwordLength < 8) {
     alert("Invalid Entry: Password must be between 8 and 128 characters.");
-    generatePassword();
+    return generatePassword();
   } else {
-
     // Second question, user responds and sets variable to true or false
     var containsLowercase = confirm(
       "Would you like your password to contain lowercase letters?"
@@ -128,12 +67,11 @@ function generatePassword() {
       containsNumbers === false &&
       containsSpecialCharacters === false
     ) {
-
-    // if questions 2-5 were all answered no, then an error message will be given and the function will restart
+      // if questions 2-5 were all answered no, then an error message will be given and the function will restart
       alert(
         "Error: Your password must contain at least one of the following - lowercase letters, uppercase letters, numbers, special characters"
       );
-      generatePassword();
+      return generatePassword();
       // if there are enough parameters chosen, add the desired password parameters to an array named characterOptions
     } else {
       // if lowercase is selected, add lowercase to the array
@@ -161,7 +99,6 @@ function generatePassword() {
       }
     }
   }
-
   // return password to its designated location
   return password;
 }
