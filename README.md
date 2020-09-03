@@ -1,6 +1,8 @@
 # Password Generator
 The purpose of this repository is to create a random password generator which takes the user defined parameters and returns a random value within those parameters.
 
+![HTML](password.PNG)
+
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#Usage)
@@ -21,7 +23,7 @@ The purpose of this repository is to create a random password generator which ta
 -----
 
 ## Usage
-Edit using VSCode after [installation](#installation). HTML and CSS files are provided.
+Edit using VSCode after [installation](#installation). HTML, JS and CSS files are provided.
 
 #### Javascript
 
