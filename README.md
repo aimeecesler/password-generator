@@ -23,19 +23,19 @@ The purpose of this repository is to create a random password generator which ta
 ## Usage
 Edit using VSCode after [installation](#installation). HTML and CSS files are provided.
 
-#### HTML
+#### Javascript
 
-![HTML](###)
-
-#### CSS
-
-![CSS](###)
+![HTML](javascript.PNG)
 
 -----
 
 ## Building the Password Generator
 
+The first challenge with building the password generator was creating a series of questions for the user to compile the desired parameters for their password. This was accomplished with a series of prompts requesting information or confirmations from the user. If at any point during these questions the user enters an invalid response, an error message will appear and the questions will start from the beginning. If the user choses to decline the first prompt (password length), the page will reload.
 
+Once all of the prompts were built, the second challenge of building the password generator began - actually generating a password. Using all of the parameters given by the user, I then created a series of if statements that would add the characters selected to an array for the computer to choose from. After this array was completed, I created a for loop, that would randomly select a character from the array for the alloted number of characters chosen by the user.
+
+Overall I found this assignment to be very challenging but in the end it really solidified my base knowledge of functions and gave me a much better understanding of the sequence of events within a function.
 
 -----
 
